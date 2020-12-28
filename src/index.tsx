@@ -27,6 +27,7 @@ const ReactImageUploading: React.FC<ImageUploadingPropsType> = ({
   resolutionWidth,
   resolutionHeight,
   resolutionType,
+  inputProps = {},
 }) => {
   const inValue = value || [];
   const inputRef = useRef<HTMLInputElement>(null);
@@ -164,6 +165,7 @@ const ReactImageUploading: React.FC<ImageUploadingPropsType> = ({
         multiple={multiple && keyUpdate === DEFAULT_NULL_INDEX}
         onChange={onInputChange}
         style={{ display: 'none' }}
+        {...inputProps}
       />
       {children?.({
         imageList: inValue,

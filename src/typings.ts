@@ -21,6 +21,7 @@ export interface ImageUploadingPropsType {
   resolutionType?: ResolutionType;
   onError?: (errors: ErrorsType, files?: ImageListType) => void;
   dataURLKey?: string;
+  inputProps?: React.HTMLProps<HTMLInputElement>;
 }
 
 export interface ExportInterface {
