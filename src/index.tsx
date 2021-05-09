@@ -151,8 +151,13 @@ const ReactImageUploading: React.FC<ImageUploadingPropsType> = ({
     setIsDragging(false);
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       handleChange(e.dataTransfer.files);
-      e.dataTransfer.clearData();
     }
+  };
+
+  const handleDragStart = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    e.dataTransfer.clearData();
   };
 
   return (
@@ -177,6 +182,7 @@ const ReactImageUploading: React.FC<ImageUploadingPropsType> = ({
           onDragEnter: handleDragIn,
           onDragLeave: handleDragOut,
           onDragOver: handleDrag,
+          onDragStart:handleDragStart,
         },
         isDragging,
       })}
